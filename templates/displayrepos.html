@@ -4,7 +4,7 @@
 	User's repos
 {% endblock %}
 {% block main %}
-<h1 class="display-3">
+	<h1 class="display-3">
 		Github repositories of 
 		{% if "User" in user["type"] %}
 			<span class="darker_blue">user</span>
@@ -14,6 +14,13 @@
 		<span class="blue_title">{{ user["login"] }}</span>
 	</h1>
 	<h1 class="display-4">&emsp;{{ user["name"] }}</h1>
+	{% if user["location"] is defined %}
+		<p class="lead" style="font-size: x-large;">Location: <span class="blue_title">{{ user["location"] }}</span></p>
+	{% endif %}
+	{% if user["email"] is defined %}
+		<p class="lead" style="font-size: x-large;">Email: <span class="blue_title">{{ user["email"] }}</span></p>
+	{% endif %}
+	<p class="lead" style="font-size: x-large;">Github member since {{ user["created_date_string"] }}</p>
 	<div class="pt-5"></div>
 	<div class="pt-3">
 		<p class="lead" style="font-size: xx-large"><span class="blue_title">{{ user["login"] }}</span> currently has 
