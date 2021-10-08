@@ -18,12 +18,13 @@ def change_iso_format_time(date_to_change):
 	return new_date
 
 # Loops through repositories and reformats the "updated_at" times of each repo
-# with the help of change_is_format_time(). Does the same to the user's "created_at" info
+# with the help of change_is_format_time(). 
+# Does the same to the user's "created_at" info, but only the date, not time
 def change_time_formats(repos, user):
 	for repo in repos:
 		new_date = change_iso_format_time(repo["updated_at"])
 		repo["updated_date_string"] = new_date
-	user["created_date_string"] = change_iso_format_time(user["created_at"])
+	user["created_date_string"] = change_iso_format_time(user["created_at"])[6:]
 
 # Url to search for a specific user
 def get_user_url(user):

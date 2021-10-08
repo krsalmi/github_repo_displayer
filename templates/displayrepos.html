@@ -17,7 +17,7 @@
 	{% if user["location"] is defined %}
 		<p class="lead" style="font-size: x-large;">Location: <span class="blue_title">{{ user["location"] }}</span></p>
 	{% endif %}
-	{% if user["email"] is defined %}
+	{% if user["email"] is not none %}
 		<p class="lead" style="font-size: x-large;">Email: <span class="blue_title">{{ user["email"] }}</span></p>
 	{% endif %}
 	<p class="lead" style="font-size: x-large;">Github member since {{ user["created_date_string"] }}</p>
