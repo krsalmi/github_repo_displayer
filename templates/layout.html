@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+	
+	<style>
+		a:link {
+			color: #3DD4F8;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: #c4f2fc;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #3DD4F8;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		.blue_title {
+			color:  #0076B9;	
+		}
+		.darker_blue {
+			color: #005281;
+		}
+	</style>
+
+	<title>Github repo listing {% block title %}{% endblock %}</title>
+</head>
+<body>
+	<main class="container px-3 pt-5">
+
+		{% block main %}{% endblock %}
+
+	</main>
+	<div class="pt-5"></div>
+</body>
+</html>

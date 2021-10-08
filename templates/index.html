@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	<title>Index Page</title>
+{% endblock %}
+
+{% block main %}
+	<div class="pt-4">
+		<h1 class="display-3 blue_title">Repository Searcher</h1>
+		<div class="pt-4">
+			<h2 class="display-4">Search for a Github user or organization to display 
+				their public repositories</h2>
+			<form class="pt-4" action="/" method="post">
+				<div class="form-group">
+					<input autocomplete="off" autofocus class="form-control" id="name" name="name"
+						placeholder="Username or Organization" type="text">
+				</div>
+				<button id="search" class="btn btn-primary" type="submit">Dispay repositories</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

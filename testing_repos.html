@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	User's repos
+{% endblock %}
+{% block main %}
+<h1 class="display-3">
+		Github repositories of user <span class="pink">{{ user["login"] }}</span>
+	</h1>
+	<h1 class="display-4">{{ user["name"] }}</h1>
+	<div class="pt-5"></div>
+	<div class="pt-3">
+		<p class="lead" style="font-size: xx-large"><span class="pink">{{ user["login"] }}</span> currently has 
+				<span class="pink">{{ repos|length }}</span> public repositories</p>
+		<img alt="user pic" src="{{ user['avatar_url'] }}" class="float-right rounded-circle" style="width:300px; height:300px"/>
+	</div>
+	<div class="pt-5"></div>
+	{% for repo in repos %}
+		<div>
+			<div class="pt-4 border border-right-0 border border-left-0">
+				<p class="lead"><span class="purple">Name of repository: </span> <br/>&emsp;{{ repo["name"] }}</p>
+				<p class="lead"><a href= "{{ repo['html_url'] }}" >link to repository</a></p>
+				<p class="lead"><span class="purple">Description:</span> <br/>&emsp;{{ repo["description"] }}</p>
+				<p class="lead"><span class="purple">Language used:</span> <br/>&emsp;{{ repo["language"] }}</p>
+				<p class="lead"><span class="purple">Size of repository:</span> <br/>&emsp;{{ repo["size"] }}KB</p>
+				<p class="lead">Updated at {{ repo["updated_date_string"] }}</p>
+			</div>
+		{% endfor %}
+
+	</div>
+{% endblock %}
