@@ -13,8 +13,8 @@ app = Flask(__name__)
 # timezone.
 def change_iso_format_time(date_to_change):
 	new_date = dateutil.parser.isoparse(date_to_change) # ISO 8601 extended format to datetime.datetime object
-	new_date = date.replace(tzinfo=timezone.utc).astimezone(tz=None) #change timezone from UTC to local
-	new_date = date.strftime("%H:%M, %d %b %Y")
+	new_date = new_date.replace(tzinfo=timezone.utc).astimezone(tz=None) #change timezone from UTC to local
+	new_date = new_date.strftime("%H:%M, %d %b %Y")
 	return new_date
 
 # Loops through repositories and reformats the "updated_at" times of each repo
