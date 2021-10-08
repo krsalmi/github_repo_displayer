@@ -14,15 +14,22 @@
 		<span class="blue_title">{{ user["login"] }}</span>
 	</h1>
 	<h1 class="display-4">&emsp;{{ user["name"] }}</h1>
-	{% if user["location"] is defined %}
+	
+	<div class="pt-5"></div>
+	<div class="pt-3">
+		{% if user["location"] is not none %}
+			<p class="lead" style="font-size: x-large;">Location: <span class="blue_title">{{ user["location"] }}</span></p>
+		{% endif %}
+		{% if user["email"] is not none %}
+			<p class="lead" style="font-size: x-large;">Email: <span class="blue_title">{{ user["email"] }}</span></p>
+		{% endif %}
+		<p class="lead" style="font-size: x-large;">Github member since {{ user["created_date_string"] }}</p>{% if user["location"] is not none %}
 		<p class="lead" style="font-size: x-large;">Location: <span class="blue_title">{{ user["location"] }}</span></p>
 	{% endif %}
 	{% if user["email"] is not none %}
 		<p class="lead" style="font-size: x-large;">Email: <span class="blue_title">{{ user["email"] }}</span></p>
 	{% endif %}
 	<p class="lead" style="font-size: x-large;">Github member since {{ user["created_date_string"] }}</p>
-	<div class="pt-5"></div>
-	<div class="pt-3">
 		<p class="lead" style="font-size: xx-large"><span class="blue_title">{{ user["login"] }}</span> currently has 
 				<span class="blue_title">{{ repos|length }}</span> public repositories</p>
 		<img alt="user pic" src="{{ user['avatar_url'] }}" class="float-right rounded-circle" style="width:300px; height:300px"/>
